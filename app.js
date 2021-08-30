@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -8,8 +9,15 @@ const cors = require('cors');
 const indexRouter = require('./api/routes/index');
 const listingsRouter = require('./api/routes/listings');
 
-mongoose.connect("mongodb://localhost:27017/acmedb", { useNewUrlParser: true }).then(() => {
+console.log(process.env.MONGO_ATLAS_PW);
+
+mongoose.connect("mongodb+srv://admin:" + process.env.MONGO_ATLAS_PW + "@cluster0.vblpk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
     console.log('Connected to db');
+}).catch(err => {
+    console.log('Error de conexion', err);
 });
 const app = express();
 
