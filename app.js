@@ -10,7 +10,7 @@ const indexRouter = require('./api/routes/index');
 const listingsRouter = require('./api/routes/listings');
 const usersRouter = require('./api/routes/users');
 
-mongoose.connect("mongodb+srv://admin:" + process.env.MONGO_ATLAS_PW + "@cluster0.vblpk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_ATLAS_CONN_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
