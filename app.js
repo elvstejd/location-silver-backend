@@ -8,8 +8,7 @@ const cors = require('cors');
 
 const indexRouter = require('./api/routes/index');
 const listingsRouter = require('./api/routes/listings');
-
-console.log(process.env.MONGO_ATLAS_PW);
+const usersRouter = require('./api/routes/users');
 
 mongoose.connect("mongodb+srv://admin:" + process.env.MONGO_ATLAS_PW + "@cluster0.vblpk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     useNewUrlParser: true,
@@ -30,5 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/listings', listingsRouter);
+app.use('/users', usersRouter);
 
 module.exports = app;
