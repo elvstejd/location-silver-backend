@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
     });
 
     await listing.save();
-    res.send(listing);
+    res.status(201).send(listing);
 });
 
 
