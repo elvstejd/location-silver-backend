@@ -7,6 +7,7 @@ const locationSchema = mongoose.Schema({
 
 const listingSchema = mongoose.Schema({
     address: String,
+    imageUrl: String,
     sector: String,
     price: Number,
     location: locationSchema

@@ -26,6 +26,7 @@ router.get('/:id', async (req, res) => {
 /* POST a listing */
 router.post('/', async (req, res) => {
     const listing = new Listing({
+        imageUrl: req.body.imageUrl,
         address: req.body.address,
         sector: req.body.sector,
         price: req.body.price,
